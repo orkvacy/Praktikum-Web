@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* defaultnya */
+:root 
+{
+    --primary-color: #0057b8;
+    --secondary-color: #ff6600;
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --white: #ffffff;
+    --dark-blue: #0d2d52;
+}
+
+body 
+{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+.mainContainer 
+{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+
+header 
+{
+    background: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 
+{
+    color: var(--primary-color);
+    margin: 0;
+}
+
+
+section 
+{
+    padding: 40px 0;
+}
+
+#heroSection h2 
+{
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 90%;
+    font-size: 2.2rem;
+    color: white;
+}
+
+
+#heroSection 
+{
+    background: url('pic/eropa.png') no-repeat center center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+#heroSection::before 
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#heroSection .heroContent 
+{
+    position: relative;
+    color: var(--white);
+    z-index: 1;
+}
+
+#heroForm 
+{
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#heroForm input[type="text"],
+#heroForm input[type="date"] 
+{
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 10px 10px 0;
+    width: 250px;
+}
+
+
+.actionButton {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.actionButton:hover {
+    background: #e65c00;
+    transform: translateY(-2px);
+}
+
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+
+.infoCard {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infoCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.infoCard img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.cardContent {
+    padding: 20px;
+}
+
+.cardContent h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+
+.testimonialCard {
+    display: flex;
+    flex-direction: column;
+}
+.testimonialCard blockquote {
+    margin: 0 0 15px 0;
+    font-style: italic;
+    flex-grow: 1;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 15px;
+}
+.testimonialCard p {
+    text-align: right;
+    font-weight: 600;
+}
+.testimonialCard em {
+    font-weight: 400;
+    color: #777;
+}
+
+
+.tableWrapper {
+    overflow-x: auto;
+}
+
+
+.promoTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.promoTable th, .promoTable td 
+{
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.promoTable thead 
+{
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.promoTable tbody tr:nth-child(even) 
+{
+    background-color: #f9f9f9;
+}
+
+.promoTable tbody tr:hover 
+{
+    background-color: #f1f1f1;
+}
+
+
+.promoTable tbody td strong 
+{
+    color: red;
+}
+
+
+#inspirationSection article {
+    display: flex;
+    gap: 20px;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+#inspirationSection img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+#inspirationSection article div a:not(.actionButton) {
+    color: var(--text-color); 
+    text-decoration: none;   
+}
+
+
+#inspirationSection article div a:not(.actionButton):hover h3 {
+    color: var(--primary-color);
+}
+
+
+footer {
+    background: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+footer h3 {
+    color: var(--secondary-color);
+}
+footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    #heroForm {
+        display: block;
+    }
+    #heroForm input[type="text"],
+    #heroForm input[type="date"] {
+        width: 90%;
+        margin: 0 0 10px 0;
+    }
+    #inspirationSection article {
+        flex-direction: column;
+    }
+    #inspirationSection img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.headerContainer {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+
+header .logo a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+
+.mainNav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; 
+}
+
+.mainNav a {
+    text-decoration: none; 
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.mainNav a:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .headerContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header {
+        padding: 1rem;
+    }
+
+    .mainNav {
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 15px;
+    }
+}

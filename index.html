@@ -20,6 +20,13 @@
                         <li><a href="#">Hotel</a></li>
                         <li><a href="#">Tiket Pesawat</a></li>
                         <li><a href="#">Tentang Kami</a></li>
+                        
+                        <li>
+                            <label class="darkModeSwitch">
+                                <input type="checkbox" id="darkModeToggle">
+                                <span class="slider"></span>
+                            </label>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -31,9 +38,9 @@
                 <h2>Cape dengan Kaderisasi? Mari Rencanakan Liburan Anda</h2>
                 <p>Luapkan emosi Anda dengan cara berjalan-jalan</p>
                 <div id="heroForm">
-                    <form>
-                        <input type="text" id="tujuan" name="tujuan" placeholder="Contoh: Jepang, India">
-                        <input type="date" id="tanggal" name="tanggal">
+                    <form id="searchForm">
+                        <input type="text" id="tujuan" name="tujuan" placeholder="Contoh: Jepang, India" required>
+                        <input type="date" id="tanggal" name="tanggal" required>
                         <button type="submit" class="actionButton">Cari Paket</button>
                     </form>
                 </div>
@@ -58,19 +65,19 @@
                                 <td style="font-weight: bold;">7D/5N Fun Adventure Of Korea</td>
                                 <td>Korea Selatan</td>
                                 <td><s>Rp 21.000.000</s><br><strong>Rp 18.533.000</strong></td>
-                                <td><a href="#" class="actionButton">Lihat Detail</a></td>
+                                <td><a href="#" class="actionButton detailButton">Lihat Detail</a></td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;">8D/7N Amazing Turkey</td>
                                 <td>Turki</td>
                                 <td><s>Rp 14.000.000</s><br><strong>Rp 12.500.000</strong></td>
-                                <td><a href="#" class="actionButton">Lihat Detail</a></td>
+                                <td><a href="#" class="actionButton detailButton">Lihat Detail</a></td>
                             </tr>
                             <tr>
                                 <td style="font-weight: bold;">5D/4N Explore Singapore & Cruise</td>
                                 <td>Singapura & Royal Caribbean</td>
                                 <td><s>Rp 11.500.000</s><br><strong>Rp 9.800.000</strong></td>
-                                <td><a href="#" class="actionButton">Lihat Detail</a></td>
+                                <td><a href="#" class="actionButton detailButton">Lihat Detail</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -168,6 +175,7 @@
             <p>&copy; 2025 KroTravel. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
-
+    
+    <script src="script.js"></script>
 </body>
 </html>

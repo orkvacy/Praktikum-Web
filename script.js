@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('customModal');
+    const modalText = document.getElementById('modalText');
+    const closeButton = document.querySelector('.closeButton');
+
+    function showModal(message) {
+        modalText.innerText = message;
+        modal.style.display = 'block';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+    }
+
+
+    window.addEventListener('click', function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    });
+
     const searchForm = document.getElementById('searchForm');
     if (searchForm) {
         searchForm.addEventListener('submit', function (event) {
@@ -8,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const tanggal = document.getElementById('tanggal').value;
 
             if (tujuan && tanggal) {
-                alert(`🔎 Mencari paket liburan ke ${tujuan} pada tanggal ${tanggal}...`);
+                showModal(`🔎 Mencari paket liburan ke ${tujuan} pada tanggal ${tanggal}...`);
             } else {
-                alert('⚠️ Mohon lengkapi tujuan dan tanggal sebelum mencari.');
+                showModal('⚠️ Mohon lengkapi tujuan dan tanggal sebelum mencari.');
             }
         });
     }
@@ -21,30 +45,30 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
 
             const tourRow = event.target.closest('tr');
-
             const tourName = tourRow.cells[0].innerText;
             const tourPrice = tourRow.querySelector('strong').innerText;
             
-            alert(`
-Anda tertarik dengan paket:
+            const message = `Anda tertarik dengan paket:\n
 ✈️ Paket: ${tourName}
-💰 Harga Promo: ${tourPrice}
-
-Informasi lebih lanjut akan segera kami kirimkan!
-            `);
+💰 Harga Promo: ${tourPrice}\n
+Informasi lebih lanjut akan segera kami kirimkan!`;
+            
+            showModal(message);
         });
     });
 
     const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeLabel = document.getElementById('darkModeLabel');
     const body = document.body;
 
-    if (darkModeToggle) {
+    if (darkModeToggle && darkModeLabel) {
         darkModeToggle.addEventListener('click', function () {
             body.classList.toggle('dark-mode');
+            
             if (body.classList.contains('dark-mode')) {
-                darkModeToggle.textContent = 'Light'; 
+                darkModeLabel.textContent = 'Light'; 
             } else {
-                darkModeToggle.textContent = 'Dark'; 
+                darkModeLabel.textContent = 'Dark'; 
             }
         });
     }

@@ -11,26 +11,28 @@
 <body>
 
     <header>
-            <div class="headerContainer">
-                <h1 class="logo"><a href="#">KroTravel</a></h1>
-                <nav>
-                    <ul class="mainNav">
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#promoSection">Paket Tour</a></li>
-                        <li><a href="#">Hotel</a></li>
-                        <li><a href="#">Tiket Pesawat</a></li>
-                        <li><a href="#">Tentang Kami</a></li>
-                        
-                        <li>
+        <div class="headerContainer">
+            <h1 class="logo"><a href="#">KroTravel</a></h1>
+            <nav>
+                <ul class="mainNav">
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#promoSection">Paket Tour</a></li>
+                    <li><a href="#">Hotel</a></li>
+                    <li><a href="#">Tiket Pesawat</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li>
+                        <div class="darkModeContainer">
                             <label class="darkModeSwitch">
                                 <input type="checkbox" id="darkModeToggle">
                                 <span class="slider"></span>
                             </label>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+                            <span id="darkModeLabel">Dark</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section id="heroSection">
@@ -175,6 +177,13 @@
             <p>&copy; 2025 KroTravel. Semua Hak Cipta Dilindungi.</p>
         </div>
     </footer>
+
+    <div id="customModal" class="modal">
+        <div class="modalContent">
+            <span class="closeButton">&times;</span>
+            <div id="modalText"></div>
+        </div>
+    </div>
     
     <script src="script.js"></script>
 </body>

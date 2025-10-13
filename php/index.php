@@ -1,5 +1,6 @@
 <?php
 session_start(); // Wajib ada di baris paling atas untuk menggunakan session
+include 'koneksi.php'; // Hubungkan ke database
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -24,9 +25,17 @@ session_start(); // Wajib ada di baris paling atas untuk menggunakan session
                     <li><a href="#">Tiket Pesawat</a></li>
                     
                     <?php if (isset($_SESSION['username'])): ?>
-                        <li><a href="#">Halo, <?php echo htmlspecialchars($_SESSION['username']); ?>!</a></li>
+                        
+                        <?php?>
+                        <?php if ($_SESSION['username'] === 'admin'): ?>
+                            <li><a href="dashboard.php" class="actionButton">Dashboard</a></li>
+                        <?php endif; ?>
+
+                        <?php?>
                         <li><a href="logout.php" class="actionButton">Logout</a></li>
+
                     <?php else: ?>
+                        <?php?>
                         <li><a href="login.php" class="actionButton">Login</a></li>
                     <?php endif; ?>
 
@@ -73,24 +82,28 @@ session_start(); // Wajib ada di baris paling atas untuk menggunakan session
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            $query = "SELECT * FROM paket_tour ORDER BY id DESC LIMIT 3";
+                            $result = mysqli_query($conn, $query);
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while($row = mysqli_fetch_assoc($result)) {
+                            ?>
                             <tr>
-                                <td style="font-weight: bold;">7D/5N Fun Adventure Of Korea</td>
-                                <td>Korea Selatan</td>
-                                <td><s>Rp 21.000.000</s><br><strong>Rp 18.533.000</strong></td>
+                                <td style="font-weight: bold;"><?php echo htmlspecialchars($row['nama_paket']); ?></td>
+                                <td><?php echo htmlspecialchars($row['destinasi']); ?></td>
+                                <td>
+                                    <s>Rp <?php echo number_format($row['harga_normal'], 0, ',', '.'); ?></s><br>
+                                    <strong>Rp <?php echo number_format($row['harga_promo'], 0, ',', '.'); ?></strong>
+                                </td>
                                 <td><a href="#" class="actionButton detailButton">Lihat Detail</a></td>
                             </tr>
-                            <tr>
-                                <td style="font-weight: bold;">8D/7N Amazing Turkey</td>
-                                <td>Turki</td>
-                                <td><s>Rp 14.000.000</s><br><strong>Rp 12.500.000</strong></td>
-                                <td><a href="#" class="actionButton detailButton">Lihat Detail</a></td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: bold;">5D/4N Explore Singapore & Cruise</td>
-                                <td>Singapura & Royal Caribbean</td>
-                                <td><s>Rp 11.500.000</s><br><strong>Rp 9.800.000</strong></td>
-                                <td><a href="#" class="actionButton detailButton">Lihat Detail</a></td>
-                            </tr>
+                            <?php
+                                }
+                            } else {
+                                echo "<tr><td colspan='4' style='text-align:center;'>Promo tidak tersedia saat ini.</td></tr>";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

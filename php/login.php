@@ -1,9 +1,7 @@
 <?php
 session_start();
 
-// Jika user sudah login
 if (isset($_SESSION['username'])) {
-    // Jika dia admin, arahkan ke dashboard. Jika bukan, arahkan ke index.
     if ($_SESSION['username'] === 'admin') {
         header('Location: dashboard.php');
     } else {
@@ -27,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($username === 'admin') {
             header('Location: dashboard.php');
         } else {
-            // Untuk user lain di masa depan
             header('Location: index.php');
         }
         exit;
